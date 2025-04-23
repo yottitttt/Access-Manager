@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/static/images/favicon.ico">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>change</title>
+</head>
+<body>   
+    <header>
+        <h1 class="main">
+            <a>入退室管理</a>
+        </h1>
+        <p class="logout"><a href="/logout">ログアウト</a></p>
+        <nav>
+            <ul>
+                <li><a href="/base">ホーム</a></li>
+                <li><a href="/ranking">ランキング</a></li>
+                <li class="current"><a href="{{ url_for('profile', user_id=current_user.id) }}">プロフィール</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h2 class="title">変更画面</h2>
+    <form action="/change" method="POST" enctype="multipart/form-data">
+        <p class="image"><img src="{{ current_user.image }}" width="100" height="100" alt="プロフィール画像"></p>
+        <div class="image">
+            <label for="profile_pic">プロフィール画像変更(.jpg, .jpeg, .png)</label>
+            <input
+            type="file"
+            id="profile_pic"
+            name="profile_pic"
+            accept=".jpg, .jpeg, .png" />
+        </div>
+        <p class="image">
+            <label for="username">　　　名前変更</label>
+            <input type="text" name="username" value={{current_user.username}}>
+        </p>
+        <p class="image">
+            <label for="password">パスワード変更</label>
+            <input type="text" name="password" value="">
+        </p>
+        <p class="image">
+            <input type="submit" value="更新">
+        </p>
+        
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <ul class="flashes">
+            {% for category, message in messages %}
+            <li class="{{ category }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        <p class="back"><a href="{{ url_for('profile', user_id=current_user.id) }}">戻る</a>.</p>
+    </form>
+</body>
+</html>

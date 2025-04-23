@@ -1,0 +1,82 @@
+#current-month{
+    font-size: 1.5em;
+    margin:10px;
+    font-weight: bold;
+}
+ul {
+    list-style-type: none; 
+    padding: 0;
+}
+.ranking li {
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    background-color: #eeeeee;
+}
+.ranking li:nth-child(1){
+    padding: 25px 0px 25px 10px;
+    font-size: 25px;
+    background-color: gold;
+    font-weight: bold;
+    border-color: gold;
+}
+.ranking li:nth-child(2) {
+    padding: 25px 0px 25px 10px;
+    font-size: 25px;
+    background-color: silver;
+    font-weight: bold;
+    border-color: silver;
+}
+.ranking li:nth-child(3) {
+    padding: 25px 0px 25px 10px;
+    font-size: 25px;
+    background-color: #cd7f32; 
+    font-weight: bold;
+    border-color: #cd7f32; 
+}
+.rank {
+    margin-right: 10px;
+    width: 50px; 
+    text-align: center;
+}
+.username {
+    flex: 1; 
+    padding-left: 10px;
+}
+@media (min-width: 700px) {
+    .duration{
+        flex: 1; 
+        padding-left: 10px;
+    }
+}
+@media (max-width: 699px) {
+    .duration{
+        padding-left: 10px;
+    }
+}
+
+button {
+    float: right;
+    width: 100px; /* ボタンの横幅を指定 */
+    height: 40px; /* ボタンの高さを指定 */
+    text-align: center;
+    line-height: 28px; 
+    border-radius: 5px;
+    cursor: pointer;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+#prev-month:after {
+    content: "\2039";
+    font-weight: 700;
+    font-size: 300%;
+}
+#next-month:after {
+    content: "\203A";
+    font-weight: 700;
+    font-size: 300%;
+}

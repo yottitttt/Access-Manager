@@ -1,0 +1,60 @@
+.change{
+    font-size: 25px;
+    text-align: center;
+}
+
+@media (max-width: 700px) {  
+    .change{
+        font-size: 20px;
+        text-align: center;
+    }
+}
+
+.event-in {
+    color: rgb(255, 255, 255) !important;  /* 入室時間の文字色 */
+    background-color: #ff0000 !important;
+}
+.event-out {
+    color: rgb(255, 255, 255) !important;  /* 退室時間の文字色 */
+    background-color: #3700ff !important;
+    margin-bottom: 8px !important;
+}
+.highlight {
+    background-color: #f58f8f !important;
+}
+
+.mytable{
+    overflow:auto;
+    width: 100%;
+    height: 400px;
+}
+.mytable table{
+    font-size: 18pt;
+    margin: 0;
+    border-spacing: 0;
+}
+td{
+    border-right: 1px solid #999;
+    border-bottom: 1px solid #999;
+    background: #FFF;
+    padding: 12px;
+}
+th{
+    border-right: 1px solid #999;
+    border-bottom: 1px solid #999;
+    background: #7a9ce7;
+    position: sticky;
+    top: 0;
+}
+tr:first-child th{
+    border-top: 1px solid #999;
+}
+th:first-child{
+    border-left: 1px solid #999;
+}
+tr:first-child th:first-child{
+    z-index: 1;
+}
+tr:nth-child(odd) td{
+    background-color: #e7e7e7;
+}

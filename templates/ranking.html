@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/static/images/favicon.ico">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='ranking.css') }}" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ranking</title>
+</head>
+<body>
+    <header>
+        <h1 class="main">
+            <a>入退室管理</a>
+        </h1>
+        <p class="logout"><a href="/logout">ログアウト</a></p>
+        <nav>
+            <ul>
+                <li><a href="/base">ホーム</a></li>
+                <li  class="current"><a href="/ranking">ランキング</a></li>
+                <li><a href="{{ url_for('profile', user_id=current_user.id) }}">プロフィール</a></li>                
+            </ul>
+        </nav>
+    </header>
+    <h2 class="title">月間滞在時間ランキング</h2>
+
+    <button id="next-month"></button>
+    <button id="prev-month"></button>
+    
+    <p id="current-month"></p>
+    <div class="ranking">
+        <ul id="ranking-list"></ul>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            var currentMonth = moment().startOf('month');
+            updateRanking(currentMonth);
+
+            $('#prev-month').click(function() {
+                currentMonth = currentMonth.subtract(1, 'months');
+                updateRanking(currentMonth);
+            });
+
+            $('#next-month').click(function() {
+                currentMonth = currentMonth.add(1, 'months');
+                updateRanking(currentMonth);
+            });
+
+            function updateRanking(month) {
+                var monthYear = month.format('YYYY-MM');
+                $('#current-month').text(month.format('MMMM YYYY'));
+                
+                $.getJSON('/get_ranking/' + monthYear, function(data) {
+                    var rankingList = $('#ranking-list');
+                    rankingList.empty();
+                    $.each(data, function(index, user) {
+                        var listItem = $('<li>').addClass('ranking-item');
+                        var rank = $('<span>').addClass('rank').text((index + 1) + '位');
+                        var username = $('<span>').addClass('username').text(user.username);
+                        var duration = $('<span>').addClass('duration').text(user.duration);
+
+                        listItem.append(rank).append(username).append(duration);
+                        rankingList.append(listItem);
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>

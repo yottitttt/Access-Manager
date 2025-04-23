@@ -1,0 +1,96 @@
+header {
+    background-color: #4a0964;
+    color: #fff;
+    text-align: center;
+    vertical-align: middle;
+    border-bottom:solid #000000;
+}
+.main{
+    padding-top: 1em;
+}
+.logout {
+	position:relative;
+}
+.logout a {
+	position:absolute;
+	top:-92px;
+	right:9px;
+	width:83px;
+	height:23px;
+    background-color: #ff4b4b;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+.logout a:hover {
+    background-color: #f37575;
+}
+
+nav {
+	background: #4a0964;
+}
+nav ul {
+    display: flex;
+    margin: 0 auto;
+    padding: 0 3%;
+    width: 94%;
+    max-width: 960px;
+    list-style-type: none;
+}
+nav ul li {
+    position: relative;
+    width: 33%;
+}
+nav ul li:first-child::before {
+    position: absolute;
+    display: block;
+    content: "";
+    top: 25%;
+    left: 0px;
+    width: 1px;
+    height: 50%;
+    background-color: #ffffff;
+}
+nav ul li::after {
+    position: absolute;
+    display: block;
+    content: "";
+    top: 25%;
+    right: 0px;
+    width: 1px;
+    height: 50%;
+    background-color: #ffffff;
+}
+nav ul li a {
+    display: block;
+    padding: 17px 10px;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+}
+nav ul li a:hover {
+    background-color: #a15daa;
+}        
+.current {
+    border-bottom: solid #ffffff;
+}
+
+.title{
+    font-size: 2em;
+    margin:10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.image{
+    text-align: center;
+}
+.name{
+    font-size:  30px; 
+    text-align: center;
+    
+}
+.back{
+    text-align:right;
+}

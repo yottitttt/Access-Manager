@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/static/images/favicon.ico">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='base.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+</head>
+<body>
+    <header>
+        <h1 class="main">
+            <a>入退室管理</a>
+        </h1>
+        <p class="logout"><a href="/logout">ログアウト</a></p>
+        <nav>
+            <ul>
+                <li class="current"><a href="/base">ホーム</a></li>
+                <li><a href="/ranking">ランキング</a></li>
+                <li><a href="{{ url_for('profile', user_id=current_user.id) }}">プロフィール</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="me">
+    {% if current_user.status == '退室中' %}
+        <form method="post" action="/check_in">
+            <p>
+                {{ current_user.username }}：{{ current_user.status }}
+                <button type="submit" class="btn btn-primary">入室</button>
+            </p>
+        </form>
+    {% else %}
+        <form method="post" action="/check_out">
+            <p>
+                {{ current_user.username }}：{{ current_user.status }}
+                <button type="submit" class="btn btn-primary">退室</button>
+            </p>
+        </form>
+    {% endif %}
+    </div>
+    
+    <div class="in">
+        <h2>入室中メンバー</h2>
+        <ul>
+            {% for user in users %}
+                {% if user.status == '入室中' %}
+                    <li>
+                        <img src="{{ user.image }}" width="40" height="40" alt="プロフィール画像">
+                        <span><a href="{{ url_for('profile', user_id=user.id) }}">{{ user.username }}</a></span>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="out">
+        <h2>退室中メンバー</h2>
+        <ul>
+            {% for user in users %}
+                {% if user.status == '退室中' %}
+                    <li>
+                        <img src="{{ user.image }}" width="40" height="40" alt="プロフィール画像">
+                        <span><a href="{{ url_for('profile', user_id=user.id) }}">{{ user.username }}</a></span>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+    <p class="now"><br/>更新時刻：{{ now }}</p>
+</body>
+</html>

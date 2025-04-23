@@ -1,0 +1,99 @@
+.me{
+    font-size: 2em;
+    margin:10px;
+    font-weight: bold;
+}
+.me button {
+    font-size: 1em;
+    width: 4em;
+    height:2em;
+    margin:0px 10px;
+}
+
+@media (min-width: 700px) {
+    .in {
+        float: left;
+        padding: 0px 10px;
+        width: 45%;
+        border: 3px solid #3ac546;
+    }
+}
+@media (max-width: 699px) {
+    .in {
+        padding: 0px 10px;
+        margin-bottom: 5px;
+        width: 93%;
+        border: 3px solid #3ac546;
+    }
+}
+.in ul{
+    padding: 0px;
+}
+.in li {
+    list-style:none;
+    margin: 5px;
+    border: 2px solid #ddd; 
+    display: flex;
+    align-items: center;
+}
+.in li span{
+    padding-left: 10px;
+}
+.in li img{
+    padding: 7px;
+    border-right: 2px solid #ddd; 
+}
+@media (min-width: 700px) {
+    .out {
+        float: right;
+        padding: 0px 10px;
+        width: 45%;
+        border: 3px solid #72724d;
+    }
+}
+@media (max-width: 699px) {
+    .out {
+        padding: 0px 10px;
+        width: 93%;
+        border: 3px solid #72724d;
+    }
+}
+.out ul {
+    padding: 0px;
+ }
+.out li {
+    list-style:none;
+    margin: 5px;
+    border: 2px solid #ddd; 
+    display: flex;
+    align-items: center;
+}
+.out li span{
+    padding-left: 10px;
+}
+.out li img{
+    padding: 7px;
+    border-right: 2px solid #ddd; 
+}
+.in a {
+    text-decoration: none;
+}
+.in a:hover {
+    text-decoration: underline;
+}
+.in a:visited{
+    color: blue;
+}
+.out a {
+    text-decoration: none;
+}
+.out a:hover {
+    text-decoration: underline;
+}
+.out a:visited{
+    color: blue;
+}
+
+.now{
+    clear: both;
+ }
