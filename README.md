@@ -6,7 +6,7 @@
 ## 使用技術
 
 ### フロントエンド
-- HTML,CSS
+- HTML,CSS,js
   
 ### バックエンド
 - Flask
