@@ -9,7 +9,7 @@
 - HTML,CSS,Javascript
   
 ### バックエンド
-- Flask
+- Python,Flask
 
 ### データベース
 - SQLite
